@@ -1,0 +1,10 @@
+Package: MATH4753CPHAMFALL23
+Type: Package
+Title: MATH4753 functions
+Version: 0.1.0
+Author: Cecilia Pham
+Maintainer: Cecilia Pham <ceciliapham1009@gmail.com>
+Description: Lab functions we use in MATH4753.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
