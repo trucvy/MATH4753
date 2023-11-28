@@ -13,7 +13,7 @@ mycltp(n, iter, lambda = 10, ...)
 
 \item{lambda}{lambda: average rate of occurrence}
 
-\item{...}{}
+\item{...}{...}
 }
 \value{
 CLT Poisson function

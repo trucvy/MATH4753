@@ -13,7 +13,7 @@ mycltb(n, iter, p = 0.5, ...)
 
 \item{p}{probability}
 
-\item{...}{}
+\item{...}{...}
 }
 \value{
 CLT binomial function

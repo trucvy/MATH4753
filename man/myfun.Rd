@@ -16,5 +16,5 @@ A vector of squared components
 My first function
 }
 \examples{
-myfun(1:10)
+\dontrun{myfun(1:10)}
 }

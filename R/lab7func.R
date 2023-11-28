@@ -1,45 +1,4 @@
 
-#### Two pop samp# This is a model R function that you can alter for other statistics
-# Copy this function twice and alter the two copies to make sampling distributions from the T distribution
-#' @title mychisim RMD version from Lab 7
-#'
-#' @param n1 sample size
-#' @param sigma1 standard deviation
-#' @param mean1 mean
-#' @param iter iterations
-#' @param ymax Y max on the graph
-#' @param x vector x
-#' @param y vector y
-#'
-#' @return chi plot
-#' @export
-#'
-#' @importFrom graphics curve hist legend lines
-#' @importFrom stats dchisq density rnorm sd var
-#'
-#' @examples
-#' \dontrun{mychisim(iter = 10000, ymax = 0.15)}
-mychisim<-function(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,...){    # adjust ymax to make graph fit
-  y1=rnorm(n1*iter,mean=mean1,sd=sigma1)# generate iter samples of size n1
-
-  data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE) # Each column is a sample size n1
-
-  ssq1=apply(data1.mat,2,var) # ssq1 is s squared
-
-  w=(n1-1)*ssq1/sigma1^2      #chi-sq stat
-
-  hist(w,freq=FALSE, ylim=c(0,ymax), # Histogram with annotation
-       main=substitute(paste("Sample size = ",n[1]," = ",n1," statistic = ",chi^2)),
-       xlab=expression(paste(chi^2, "Statistic",sep=" ")), las=1)
-  lines(density(w),col="Blue",lwd=3) # add a density plot
-  curve(dchisq(x,n1-1),add=TRUE,col="Red",lty=2,lwd=3) # add a theoretical curve
-  title=expression(chi^2==frac((n[1]-1)*s^2,sigma^2)) #mathematical annotation -see ?plotmath
-  legend("topright",c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title) # Legend #
-  return(list(w=w,summary=summary(w),sd=sd(w),fun="Chi-sq")) # some output to use if needed
-}
-
-
-
 #' @title mychisim2 RMD version from Lab 7
 #'
 #' @param n1 sample size for population 1
@@ -171,4 +130,42 @@ myTsim2 <- function(n1 = 10, n2 = 14, sigma1 = 3, sigma2 = 3, mean1 = 5, mean2 =
   invisible(list(w = w, summary = summary(w), sdw = sd(w), fun = "T")) # some output to use if needed
 }
 
+
+#### Two pop samp# This is a model R function that you can alter for other statistics
+# Copy this function twice and alter the two copies to make sampling distributions from the T distribution
+#' @title mychisim RMD version from Lab 7
+#'
+#' @param n1 sample size
+#' @param sigma1 standard deviation
+#' @param mean1 mean
+#' @param iter iterations
+#' @param ymax Y max on the graph
+#' @param ... ...
+#'
+#' @return chi plot
+#' @export
+#'
+#' @importFrom graphics curve hist legend lines
+#' @importFrom stats dchisq density rnorm sd var
+#'
+#' @examples
+#' \dontrun{mychisim(iter = 10000, ymax = 0.15)}
+mychisim<-function(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,...){    # adjust ymax to make graph fit
+  y1=rnorm(n1*iter,mean=mean1,sd=sigma1)# generate iter samples of size n1
+
+  data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE) # Each column is a sample size n1
+
+  ssq1=apply(data1.mat,2,var) # ssq1 is s squared
+
+  w=(n1-1)*ssq1/sigma1^2      #chi-sq stat
+
+  hist(w,freq=FALSE, ylim=c(0,ymax), # Histogram with annotation
+       main=substitute(paste("Sample size = ",n[1]," = ",n1," statistic = ",chi^2)),
+       xlab=expression(paste(chi^2, "Statistic",sep=" ")), las=1)
+  lines(density(w),col="Blue",lwd=3) # add a density plot
+  curve(dchisq(x,n1-1),add=TRUE,col="Red",lty=2,lwd=3) # add a theoretical curve
+  title=expression(chi^2==frac((n[1]-1)*s^2,sigma^2)) #mathematical annotation -see ?plotmath
+  legend("topright",c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title) # Legend #
+  return(list(w=w,summary=summary(w),sd=sd(w),fun="Chi-sq")) # some output to use if needed
+}
 

@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' myfun(1:10)
+#' \dontrun{myfun(1:10)}
 myfun <- function(x = 2){
   x^2
 }
@@ -17,14 +17,14 @@ myfun <- function(x = 2){
 #' @param n number of samples
 #' @param p probability
 #'
-#' @import graphics
 #'
 #' @return binomial simulation
 #' @export
 #'
-#' @examples mybin(iter=100,n=10, p=0.5)
+#' @examples
+#' \dontrun{mybin(iter=100,n=10, p=0.5)}
 mybin=function(iter = 100,n = 10, p = 0.5){
-  sam.mat=matrix(NA,nr=n,nc=iter, byrow=TRUE)
+  sam.mat=matrix(NA,nrow=n,ncol=iter, byrow=TRUE)
   succ=c()
   for( i in 1:iter){
     sam.mat[,i]=sample(c(1,0),n,replace=TRUE, prob=c(p,1-p))
@@ -50,7 +50,7 @@ mybin=function(iter = 100,n = 10, p = 0.5){
 #' @examples
 #' \dontrun{myhyper(iter = 1000, N = 20, r = 12, n = 5)}
 myhyper =function(iter = 1000, N = 20, r = 12 , n = 5){
-  sam.mat=matrix(NA, nr=n , nc=iter , byrow=TRUE)
+  sam.mat=matrix(NA, nrow=n , ncol=iter , byrow=TRUE)
   succ=c()
   for( i in 1:iter){
     sam.mat[,i]=sample(rep(c(1,0),c(r,N-r)),n,replace=FALSE)

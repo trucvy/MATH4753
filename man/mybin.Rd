@@ -20,5 +20,5 @@ binomial simulation
 binomial function
 }
 \examples{
-mybin(iter=100,n=10, p=0.5)
+\dontrun{mybin(iter=100,n=10, p=0.5)}
 }

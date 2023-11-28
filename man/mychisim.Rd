@@ -17,9 +17,7 @@ mychisim(n1 = 10, sigma1 = 3, mean1 = 5, iter = 1000, ymax = 0.1, ...)
 
 \item{ymax}{Y max on the graph}
 
-\item{x}{vector x}
-
-\item{y}{vector y}
+\item{...}{...}
 }
 \value{
 chi plot
