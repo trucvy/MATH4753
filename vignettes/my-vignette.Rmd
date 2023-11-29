@@ -17,3 +17,52 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(MATH4753CPHAMFALL23)
 ```
+
+This package includes functions used throughout MATH 4753 at OU. These include functions given by the instructor, Wayne Stewart, and it also includes modified versions of those functions as well as original functions.
+
+
+## Lab 11: myci()
+
+Usage: This function takes a sample and develops a 95% confidence interval for the true mean. However, this cannot change the confidence level. 
+
+Returns: 95% confidence interval for true mean.
+
+```{r}
+set.seed(24)
+sam = rnorm(25, mean = 25, sd = 10)
+myci(sam)
+```
+
+## Lab 10: mymaxlik()
+
+Usage: Finds where maximum likelihood is for a sample given a function defined by the user.
+
+Returns: Graph showing the maximum likelihood.
+
+```{r}
+logbin = function(x, param) log(dbinom(x, prob = param, size = 10))
+
+y = c(3,3,4,3,4,5,5,4)
+mymaxlik(lfun = logbin, x = y, param = seq(0, 1, length = 1000), main = "Binomial, n = 20")
+```
+
+## Lab 9: myboot2
+
+Usage: Uses the bootstrap sampling method to determine an interval for the true mean.
+
+Returns: A graph showing a histograpm of bootstrap sample statistics.
+
+```{r}
+myboot2(10000, sam)
+```
+
+## Lab 8: myclt()
+
+Usage: Makes a graph of the distribution of the sum of uniforms given a range and iterations to study the central limit theorem.
+
+Returns: Shows the distribution of the sum of uniforms.
+
+```{r}
+clt <- myclt(50, 1000, 0, 5)
+```
+
